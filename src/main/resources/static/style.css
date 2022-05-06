@@ -1,0 +1,55 @@
+}
+    body {
+     @keyframes my-anime{
+        0%{
+            opacity:0.0;
+            transform:rotateX(-40deg);
+            font-size:0%;
+
+
+        }
+         25%{
+            opacity:0.0;
+            transform:rotateX(60deg);
+            font-size:75%;
+
+
+        }
+          50%{
+            opacity:0.0;
+            transform:rotateX(90deg);
+            font-size:150%;
+
+        }
+           100%{
+            opacity:1;
+            transform:rotateX(120deg);
+            font-size:300%;
+
+        }
+    }
+ h6.popUpText{
+        color: #de0114;
+
+        font-family:'Humnst777 Lt BT';
+        font-size:200%;
+        text-transform:capitalize;
+        animation:1900ms my-anime ease-in-out;
+        text-align:center;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+         position:relative;
+         font-style:normal;
+         font-weight:200;
+    }
+           background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+
+           background-color:black;
+           background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;

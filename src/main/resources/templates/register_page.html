@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>register</title>
+
+    <style>
+     @keyframes my-anime{
+        0%{
+            opacity:0.0;
+            transform:rotateX(-40deg);
+            font-size:0%;
+
+
+        }
+         25%{
+            opacity:0.0;
+            transform:rotateX(60deg);
+            font-size:75%;
+
+
+        }
+          50%{
+            opacity:0.0;
+            transform:rotateX(90deg);
+            font-size:150%;
+
+        }
+           100%{
+            opacity:1;
+            transform:rotateX(120deg);
+            font-size:300%;
+
+        }
+    }
+ h6.popUpText{
+        color: #de0114;
+
+        font-family:'Humnst777 Lt BT';
+        font-size:200%;
+        text-transform:capitalize;
+        animation:1900ms my-anime ease-in-out;
+        text-align:center;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+         position:relative;
+         font-style:normal;
+         font-weight:200;
+    }
+      body {
+           background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+
+           background-color:black;
+           background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+    </style>
+
+    <script type="text/javascript">
+        function password_validate()
+        {
+        var res;
+        var str =document.getElementById("t1").value;
+        if(str.match(/[a-z]/g) && str.match(/[A-Z]/G) && str.match(/[0-9]/9)  && str.match(/[^a-zA-Z\d]/g) &&  str.length >=8)
+        res ="TRUE"
+        else
+        res ="FALSE";
+
+        document.getElementById("t2").value =res;
+        }
+
+    </script>
+</head>
+<body >
+
+<div class="container">
+
+    <form method="post" th:action="@{/register}" th:object="${registerRequest}" class="form-horizontal"  role="form"  style="border-bottom:5px solid #ADD8E6;border-top:5px solid #ADD8E6 ">
+
+        <h6 class="popUpText" >User Registration </h6>
+        <hr>
+
+        <P style="color:black;font-family:Georgia ">Please enter all the fields are required</P>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">First Name</label>
+            <div class="col-sm-9">
+                <input type="text"  id="firstName" th:field="*{firstName}" placeholder="First Name" name="firstName" required="" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+            <div class="col-sm-9">
+                <input type="text"  id="lastName" th:field="*{lastName}"  placeholder="Last Name" name="lastName" required="" class="form-control" autofocus>
+            </div>
+            <div class="form-group">
+                <label for="login" class="col-sm-3 control-label"> Username</label>
+                <div class="col-sm-9">
+                    <input type="text"  id="login" th:field="*{login}"  placeholder="user Name" name="login" required="" class="form-control" autofocus>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email </label>
+            <div class="col-sm-9">
+                <input type="email"   id="email" th:field="*{Email}" placeholder="Email" name="Email" required="" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password"   id="password" th:field="*{password}" placeholder="Password" name="password" pattern="(?=.*\d)(?=.*[a-z](?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter , and at least 8 or more special characters " required="" class="form-control">
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label for="password" class="col-sm-10 control-label">Confirm Password</label>
+            <div class="col-sm-9">
+                <input type="password"   id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z](?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter , and at least 8 or more special characters " required="" class="form-control">
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label  class="col-sm-3 control-label">Address</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" th:field="*{address}"  id="address" name="address" required="" rows="4"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Height" class="col-sm-3 control-label">phone Number </label>
+            <div class="col-sm-9">
+                <input type="number"  id="height" th:field="*{phoneNo}" required="" name="phoneNo" class="form-control">
+            </div>
+        </div>
+        <button type="submit" onclick="password_validate()" class="btn btn-primary btn-block">Register</button>
+            <p  STYLE="text-align:center;font-family:Georgia ">Have  an account already? <a href="login" class="fw-bold text-body"><u>Login here</u></a></p></div>
+    </form>
+</div>
+</body>
+
+<
+</html>

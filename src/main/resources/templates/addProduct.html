@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+
+
+    <style>
+     body {
+           background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+
+           background-color:black;
+           background-size: cover;
+}
+    body {
+     @keyframes my-anime{
+        0%{
+            opacity:0.0;
+            transform:rotateX(-40deg);
+            font-size:0%;
+
+
+        }
+         25%{
+            opacity:0.0;
+            transform:rotateX(60deg);
+            font-size:75%;
+
+
+        }
+          50%{
+            opacity:0.0;
+            transform:rotateX(90deg);
+            font-size:150%;
+
+        }
+           100%{
+            opacity:1;
+            transform:rotateX(120deg);
+            font-size:300%;
+
+        }
+    }
+ h6.popUpText{
+        color: #de0114;
+
+        font-family:'Humnst777 Lt BT';
+        font-size:200%;
+        text-transform:capitalize;
+        animation:1900ms my-anime ease-in-out;
+        text-align:center;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+         position:relative;
+         font-style:normal;
+         font-weight:200;
+    }
+           background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+
+           background-color:black;
+           background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+    </style>
+</head>
+<body>
+<br><br>
+<div class="container">
+    <form method="post" th:action="@{/addProduct}" th:object="${productRequest}" enctype="multipart/form-data"  class="form-horizontal"  role="form" style="border-bottom:5px solid #ADD8E6;border-top:5px solid #ADD8E6 " t>
+        <h6 class="popUpText" >Add Product </h6>
+
+        <br>
+        <br>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="name">Product Name</label>
+            <div class="col-md-9">
+                <input id="name" name="name" th:field="*{name}" placeholder="product name" class="form-control input-md" required="" type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-9 control-label" for="description">Product Description</label>
+            <div class="col-md-9">
+                <textarea class="form-control" id="description" th:field="*{description}" placeholder="Product Description" name="description" required=""></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" >Product Price</label>
+            <div class="col-md-9">
+                <input id="stock_alert" name="price" th:field="*{price}" placeholder="product price" class="form-control input-md" required="" type="text">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-9 control-label" for="file">Choose Product Images</label>
+            <div class="col-md-9">
+                <input id="file" th:field="*{image}" name="image" class="input-file" type="file" required="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" ></label>
+            <div class="col-md-9">
+                <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

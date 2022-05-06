@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+
+
+    <style>
+     @keyframes my-anime{
+        0%{
+            opacity:0.0;
+            transform:rotateX(-40deg);
+            font-size:0%;
+
+
+        }
+         25%{
+            opacity:0.0;
+            transform:rotateX(60deg);
+            font-size:75%;
+
+
+        }
+          50%{
+            opacity:0.0;
+            transform:rotateX(90deg);
+            font-size:150%;
+
+        }
+           100%{
+            opacity:1;
+            transform:rotateX(120deg);
+            font-size:300%;
+
+        }
+    }
+ h6.popUpText{
+        color: #de0114;
+
+        font-family:'Humnst777 Lt BT';
+        font-size:200%;
+        text-transform:capitalize;
+        animation:1900ms my-anime ease-in-out;
+        text-align:center;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+         position:relative;
+         font-style:normal;
+         font-weight:200;
+    }
+    body {
+           background: url('https://static-communitytable.parade.com/wp-content/uploads/2014/03/rethink-target-heart-rate-number-ftr.jpg') fixed;
+
+           background-color:black;
+           background-size: cover;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    border-radius: 0.3em;
+    background-color: #f2f2f2;
+}
+
+*[role="form"] h2 {
+    font-family: 'Open Sans' , sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000000;
+    margin-top: 5%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+    </style>
+</head>
+<body>
+<br><br>
+<div class="container">
+    <form method="post" th:action="@{/login}" th:object="${loginRequest}" class="form-horizontal"  role="form" style="border-bottom:5px solid #ADD8E6;border-top:5px solid #ADD8E6 " t>
+        <br>
+        <br>
+
+
+
+        <h6 class="popUpText" >Sign In </h6>
+        <hr>
+
+        <div class="form-group">
+            <label for="login" class="col-sm-3 control-label">Username </label>
+            <div class="col-sm-9">
+                <input type="text"   id="login" th:field="*{login}" placeholder="username" name="login"  class="form-control"  required="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password"  id="password" th:field="*{password}" placeholder="Password" name="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z](?=.*[A-Z]).{8,}" title="must contain at least one number and one uppercase and lowercase letter , and at least 8 or more special characters " required="">
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col d-flex justify-content-center">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"  />
+                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+                </div>
+            </div>
+            <div class="col">
+                <a href="#!">Forgot password?</a>
+            </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block ">Submit</button>
+        <div class="text-center">
+            <p STYLE="text-align:center;font-family:Georgia ">Don't have an account? <a href="/register">Register</a></p>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>
